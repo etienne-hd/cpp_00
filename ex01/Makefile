@@ -1,21 +1,22 @@
 CXX=c++
-CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98 -I include
 NAME = phonebook
-SRCS = main.cpp \
-	PhoneBook.cpp \
-	Contact.cpp \
-	Utils.cpp \
-	Cmd.cpp
+SRC_DIR = src/
+SRCS = $(SRC_DIR)main.cpp \
+	$(SRC_DIR)PhoneBook.cpp \
+	$(SRC_DIR)Contact.cpp \
+	$(SRC_DIR)utils.cpp \
+	$(SRC_DIR)cmd.cpp
 
 OBJ_DIR = objs/
-OBJS = $(SRCS:%.cpp=$(OBJ_DIR)%.o)
+OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p objs/
 	$(CXX) $(CXXFLAGS) $< -c -o $@
 

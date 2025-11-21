@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Utils.cpp                                          :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:45:58 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 22:17:36 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:28:17 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ static size_t	getIntegerLength(int integer)
 void displayColumnInteger(int integer, size_t column_size)
 {
 	size_t	length;
-	size_t	j;
 
 	length = getIntegerLength(integer);
-	j = 0;
 	std::cout << "|";
 	for (size_t i = 0; i < column_size; i++)
 	{
@@ -67,4 +65,24 @@ void displayColumnInteger(int integer, size_t column_size)
 			break;
 		}
 	}
+}
+
+bool getInput(std::string &value, std::string prompt)
+{
+	if (prompt.empty())
+		std::cout << "> ";
+	else
+		std::cout << prompt << " > ";
+
+	value.clear();
+	while (value.empty())
+	{
+		std::getline(std::cin, value);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return (true);
+		}
+	}
+	return (false);
 }

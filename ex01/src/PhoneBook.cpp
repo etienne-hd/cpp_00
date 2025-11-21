@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:48:50 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 22:01:20 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:23:50 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "PhoneBook destructor has been called!" << std::endl;
 }
 
 void	PhoneBook::addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret)

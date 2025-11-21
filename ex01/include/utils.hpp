@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:46:40 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 21:53:07 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:03:15 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 
 void displayColumnString(std::string str, size_t column_size);
 void displayColumnInteger(int str, size_t column_size);
+bool getInput(std::string &value, std::string prompt);
 
 #endif

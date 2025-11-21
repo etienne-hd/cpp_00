@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cmd.cpp                                            :+:      :+:    :+:   */
+/*   cmd.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:49:12 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 22:16:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:38:16 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include "Utils.hpp"
+#include "utils.hpp"
 #include <iostream>
+#include <cstdlib>
 
 void	cmdAdd(PhoneBook &phoneBook)
 {
@@ -23,23 +24,22 @@ void	cmdAdd(PhoneBook &phoneBook)
 	std::string phoneNumber;
 	std::string darkestSecret;
 
-	std::cout << "Please enter the first name > ";
-	std::cin >> firstName;
-	std::cout << "Please enter the last name > ";
-	std::cin >> lastName;
-	std::cout << "Please enter the nickname > ";
-	std::cin >> nickname;
-	std::cout << "Please enter the phone number > ";
-	std::cin >> phoneNumber;
-	std::cout << "Please enter the darkest secret > ";
-	std::cin >> darkestSecret;
+	if (
+		getInput(firstName, "Please enter the first name")
+		|| getInput(lastName, "Please enter the last name")
+		|| getInput(nickname, "Please enter the nickname")
+		|| getInput(phoneNumber, "Please enter the phone number")
+		|| getInput(darkestSecret, "Please enter the darkest secret")
+	)
+		return ;
 	phoneBook.addContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 }
 
 void	cmdSearch(PhoneBook &phoneBook)
 {
 	Contact		*contact;
-	size_t		i;
+	std::string	str_index;
+	int			int_index;
 
 	if (!phoneBook.getContact(0))
 	{
@@ -62,11 +62,18 @@ void	cmdSearch(PhoneBook &phoneBook)
 		displayColumnString(contact->getNickname(), 10);
 		std::cout << "|" << std::endl;
 	}
+
 	while (1)
 	{
-		std::cout << "Please select the index of the contact you want to display > ";
-		std::cin >> i;
-		contact = phoneBook.getContact(i);
+		if (getInput(str_index, "Please select the index of the contact you want to display"))
+			return ;
+		if (!std::isdigit(str_index[0]))
+		{
+			std::cerr << "Invalid input! It must start by a number!" << std::endl;
+			continue;
+		}
+		int_index = std::atoi(str_index.c_str());
+		contact = phoneBook.getContact(int_index);
 		if (!contact)
 			std::cerr << "Please provide a valid index!" << std::endl;
 		else

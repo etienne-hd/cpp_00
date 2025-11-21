@@ -1,3 +1,5 @@
 objs/
 phonebook
 megaphone
+.cache
+compile_commands.json

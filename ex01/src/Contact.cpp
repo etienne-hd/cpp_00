@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:55:18 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 17:55:41 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:23:43 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickna
 
 Contact::~Contact()
 {
-	std::cout << "DESTRUCTOR CALLED" << std::endl;
 }
 
 std::string Contact::getFirstName(void)
