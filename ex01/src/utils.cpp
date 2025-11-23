@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:45:58 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/23 16:42:18 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/23 17:06:39 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void displayColumnString(std::string str, size_t column_size)
 	{
 		if (i + str.length() < column_size)
 			std::cout << " ";
-		else if (i == column_size - 1 && str.length() >= column_size)
+		else if (i == column_size - 1 && str.length() >= column_size && str.length() != column_size)
 			std::cout << ".";
 		else
 			std::cout << str[j++];
