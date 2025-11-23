@@ -2,7 +2,7 @@ CXX=c++
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98
 NAME = megaphone
 SRCS = megaphone.cpp
-OBJ_DIR = objs/
+OBJ_DIR = .build/
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)%.o)
 
 all: $(NAME)
@@ -11,7 +11,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)%.o: %.cpp
-	@mkdir -p objs/
+	@mkdir -p $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $< -c -o $@
 
 fclean: clean

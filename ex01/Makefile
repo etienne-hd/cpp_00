@@ -8,7 +8,7 @@ SRCS = $(SRC_DIR)main.cpp \
 	$(SRC_DIR)utils.cpp \
 	$(SRC_DIR)cmd.cpp
 
-OBJ_DIR = objs/
+OBJ_DIR = .build/
 OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
 all: $(NAME)
@@ -17,7 +17,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	@mkdir -p objs/
+	@mkdir -p $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $< -c -o $@
 
 fclean: clean
