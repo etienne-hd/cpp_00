@@ -6,13 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:48:50 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 23:23:50 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:45:23 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include <cstddef>
-#include <cstring>
+# include "PhoneBook.hpp"
+# include <cstddef>
+# include <cstring>
 
 PhoneBook::PhoneBook()
 {

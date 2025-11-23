@@ -6,15 +6,15 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:49:12 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 23:38:16 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/21 23:45:18 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
-#include "utils.hpp"
-#include <iostream>
-#include <cstdlib>
+# include "Contact.hpp"
+# include "PhoneBook.hpp"
+# include "utils.hpp"
+# include <iostream>
+# include <cstdlib>
 
 void	cmdAdd(PhoneBook &phoneBook)
 {
@@ -91,5 +91,7 @@ void	cmdSearch(PhoneBook &phoneBook)
 void	cmdHelp(void)
 {
 	std::cout << "HELP: Show this message" << std::endl;
-	std::cout << "ADD: Add Contact to your PhoneBook" << std::endl << std::endl;
+	std::cout << "ADD: Add Contact to your phone book" << std::endl;
+	std::cout << "SEARCH: Search for a contact" << std::endl;
+	std::cout << "EXIT: Exit phone book" << std::endl << std::endl;
 }

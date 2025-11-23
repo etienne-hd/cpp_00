@@ -6,12 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:45:58 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/21 23:28:17 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/23 16:42:18 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstddef>
-#include <iostream>
+# include <cstddef>
+# include <iostream>
 
 void displayColumnString(std::string str, size_t column_size)
 {
@@ -69,15 +69,24 @@ void displayColumnInteger(int integer, size_t column_size)
 
 bool getInput(std::string &value, std::string prompt)
 {
-	if (prompt.empty())
-		std::cout << "> ";
-	else
-		std::cout << prompt << " > ";
 
 	value.clear();
 	while (value.empty())
 	{
+		if (prompt.empty())
+			std::cout << "> ";
+		else
+			std::cout << prompt << " > ";
 		std::getline(std::cin, value);
+		for (std::string::iterator it = value.begin(); it != value.end(); it++)
+		{
+			if (*it < 0 || *it > 127)
+			{
+				std::cerr << "Please enter an ascii value not '" << it.base() << "'!" << std::endl;
+				value.clear();
+				break;
+			}
+		}
 		if (std::cin.eof())
 		{
 			std::cout << std::endl;
