@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 17:04:45 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/24 19:23:20 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/24 20:50:57 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,11 @@ void Account::displayStatus(void) const
 
 void Account::_displayTimestamp(void)
 {
-	std::time_t result = std::time(NULL);
-    std::cout << "[" << result << "] ";
+    char    buffer[16];
+
+    time_t current = std::time(NULL);
+    struct tm *time = std::localtime(&current);
+    std::strftime(buffer, 16, "%Y%m%d_%H%M%S", time);
+    std::cout << "[" << buffer << "] ";
 }
 
