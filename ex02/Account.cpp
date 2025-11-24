@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 17:04:45 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/24 19:10:00 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/24 19:23:20 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit)
 {
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
+	this->_amount = initial_deposit;
 	this->_accountIndex = _nbAccounts;
+	_totalAmount += initial_deposit;
 	_nbAccounts++;
-	this->_amount += initial_deposit;
-	this->_totalAmount += initial_deposit;
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
 }
