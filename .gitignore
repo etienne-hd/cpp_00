@@ -3,3 +3,4 @@ phonebook
 megaphone
 .cache
 compile_commands.json
+.build
